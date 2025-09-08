@@ -1,0 +1,10 @@
+﻿################################################################################
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
+################################################################################
+
+/.vs
+/SimpleMolecularDynamics/.vs/SimpleMolecularDynamics/v15
+/SimpleMolecularDynamics/packages
+/SimpleMolecularDynamics/SimpleMolecularDynamics/Debug
+/SimpleMolecularDynamics/SimpleMolecularDynamics/Release
+/SimpleMolecularDynamics/Debug

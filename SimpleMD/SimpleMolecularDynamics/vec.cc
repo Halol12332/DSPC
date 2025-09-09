@@ -1,3 +1,4 @@
+// vec.cc
 #include <cmath>
 #include <iostream>
 #include "vec.h"

@@ -1,0 +1,23 @@
+﻿  AndersonThermostat.cc
+  example_2d.cc
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(20,8): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(117,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(127,22): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(127,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(130,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(134,23): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(134,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(138,23): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(138,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(144,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(144,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(149,29): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(149,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(156,29): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(156,18): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  mat.cc
+  MDSim.cc
+  vec.cc
+  Generating Code...
+C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\SimpleMolecularDynamics\example_2d.cc(29,1): warning C4172: returning address of local variable or temporary : rgb
+  SimpleMolecularDynamics.vcxproj -> C:\Users\user\Desktop\DSPC\SimpleMolecularDynamics\x64\Debug\SimpleMolecularDynamics.exe

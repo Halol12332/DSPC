@@ -46,22 +46,18 @@
   <ItemGroup>
     <ClCompile Include="AndersonThermostat.cc" />
     <ClCompile Include="bench_md.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-CPU|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-GPU|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-CPU|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-GPU|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="example_2d.cc">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-GPU|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-CPU|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-GPU|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-CPU|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="mat.cc" />
     <ClCompile Include="MDSim.cc" />
     <ClCompile Include="md_cuda_iface.cpp" />
-    <ClCompile Include="ping_main.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-CPU|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release-GPU|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="vec.cc" />
   </ItemGroup>
   <ItemGroup>

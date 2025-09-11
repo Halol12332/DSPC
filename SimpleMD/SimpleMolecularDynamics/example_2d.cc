@@ -225,28 +225,23 @@ double pot(vec r){
 	return 4.0 * SIGMA_6 * (SIGMA_6 / (r4*r4*r4) - 1 / (r4*r2));
 }
 
-int main(int argc, char* argv[]) {	// Args: n, dt, nue, temp_start [, glut-Optionen]
-	/*if (argc < 5) return 1;
-	int n = atoi(argv[1]), i;
-	double dt = atof(argv[2]), nue = atof(argv[3]), temp_start = atof(argv[4]);
-
+int main(int argc, char* argv[]) { // Args: n dt nue temp_start
+	int n = (argc > 1 ? std::atoi(argv[1]) : 512);
+	double dt = (argc > 2 ? std::atof(argv[2]) : 1e-3);
+	double nue = (argc > 3 ? std::atof(argv[3]) : 1.0);
+	double temp_start = (argc > 4 ? std::atof(argv[4]) : 1.0);
 
 	MDSim* sim = new MDSim(2, dt, f, pot, 0.15, 0.22, 10);
-	for (i = 0; i < n; i++){
-		sim->particles->addParticle(new MDParticle(2));
-	}
+	for (int i = 0; i < n; i++) sim->particles->addParticle(new MDParticle(2));
 	sim->getThermostat()->setT(temp_start);
 	sim->getThermostat()->setNue(nue);
 	double arr1[2] = { 1.0, 1.0 };
-	sim->initSim(true, vec(arr1, 2),0, 0, 400, 0.15);
+	sim->initSim(true, vec(arr1, 2), 0, 0, 400, 0.15);
 
-	return glutStuff(step, draw, reshape, keyboard, &argc, argv, sim, "MD - Basics");
-	*/
 #ifdef USE_CUDA
-	bool ok = md_cuda_ping();
-	std::cout << "[CUDA ping] " << (ok ? "OK" : "FAIL") << std::endl;
+	std::cout << "[MODE] GUI+GPU\n";
 #else
-	std::cout << "[CUDA disabled] Build with USE_CUDA" << std::endl;
+	std::cout << "[MODE] GUI+CPU\n";
 #endif
-	return 0;
+	return glutStuff(step, draw, reshape, keyboard, &argc, argv, sim, "MD - Basics (CUDA forces)");
 }

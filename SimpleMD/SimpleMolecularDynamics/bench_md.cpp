@@ -7,17 +7,20 @@
 static const double SIGMA = 0.025;
 static const double SIGMA_6 = std::pow(SIGMA, 6.0);
 
-vec f(vec r) {
+//defines the LJ model
+
+vec f(vec r) { //LJ Force
     double r2 = r * r, r4 = r2 * r2, r8 = r4 * r4;
     return 24.0 * SIGMA_6 * ((2 * SIGMA_6) / (r8 * r4 * r2) - 1.0 / r8) * r;
 }
-double pot(vec r) {
+double pot(vec r) { //LJ Potential (same math as serial code)
     double r2 = r * r, r4 = r2 * r2;
     return 4.0 * SIGMA_6 * (SIGMA_6 / (r4 * r4 * r4) - 1.0 / (r4 * r2));
 }
 
+//sets up a 2D MD simulation.
 static double run_once(int N, int steps) {
-    double dt = 1e-3, nue = 1.0, T0 = 1.0;
+    double dt = 1e-3, nue = 1.0, T0 = 1.0; //parameter 
     MDSim sim(2, dt, f, pot, /*r_inter*/0.15, /*r_verlet*/0.22, /*histRes*/10);
 
     for (int i = 0; i < N; i++) sim.particles->addParticle(new MDParticle(2));
@@ -26,10 +29,10 @@ static double run_once(int N, int steps) {
     double arr1[2] = { 1.0,1.0 };
     sim.initSim(true, vec(arr1, 2), 0, 0, 400, 0.15);
 
-    // warm-up (few steps)
+    // warm-up (5 few steps)
     for (int s = 0; s < 5; s++) {
-        sim.benchRefresh(false, false);
-        sim.benchForce();
+        sim.benchRefresh(false, false); //builds / updates neighbor list
+        sim.benchForce(); //computes forces and returns potential
         sim.velocityVerletStep(false);
     }
 

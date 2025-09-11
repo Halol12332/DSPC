@@ -373,8 +373,6 @@ double MDSim::refreshVerletLists(bool calc, bool countRadial) {
 	return pot_;
 }
 
-
-
 // ##---HOTSPOT 1---###############################################
 // this is to be converted to CUDA. 
 //double MDSim::velocityVerletForce(){
@@ -484,5 +482,3 @@ double MDSim::velocityVerletForce() {
 	}
 	return pot_;
 }
-
-

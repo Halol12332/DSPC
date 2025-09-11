@@ -26,6 +26,11 @@ class MDSim{
 public:
 	MDSim(int, double, vec(vec), double(vec), double, double, int);
 	~MDSim() {};
+	///////////////////////////////////////////////
+	// --- Benchmark helpers (public wrappers) ---
+	double benchRefresh(bool calc, bool countRadial) { return refreshVerletLists(calc, countRadial); }
+	double benchForce() { return velocityVerletForce(); }
+	///////////////////////////////////////////////
 
 	void initSim(bool, vec, vec(int), vec(int), int, double);
 	void velocityVerletStep(bool);

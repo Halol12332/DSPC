@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleMolecularDynamics", "SimpleMolecularDynamics\SimpleMolecularDynamics.vcxproj", "{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}"
 EndProject
@@ -25,8 +25,8 @@ Global
 		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release|x64.Build.0 = Release|x64
 		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release|x86.ActiveCfg = Release|Win32
 		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release|x86.Build.0 = Release|Win32
-		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-CPU|x64.ActiveCfg = Release-GPU|x64
-		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-CPU|x64.Build.0 = Release-GPU|x64
+		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-CPU|x64.ActiveCfg = Release-CPU|x64
+		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-CPU|x64.Build.0 = Release-CPU|x64
 		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-CPU|x86.ActiveCfg = Release-CPU|Win32
 		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-CPU|x86.Build.0 = Release-CPU|Win32
 		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-GPU|x64.ActiveCfg = Release-GPU|x64

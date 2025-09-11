@@ -3,6 +3,9 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\user\\Desktop\\DSPC\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.cc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|solutionrelative:SimpleMolecularDynamics\\MDSim.cc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -54,11 +57,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\README.md",
+              "RelativeDocumentMoniker": "..\\README.md",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DSPC\\README.md",
+              "RelativeToolTip": "..\\README.md",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-09-11T10:13:58.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "vec.cc",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\vec.cc",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\vec.cc",
@@ -71,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ping_main.cpp",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\ping_main.cpp",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\ping_main.cpp",
@@ -84,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "example_2d.cc",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\example_2d.cc",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\example_2d.cc",
@@ -97,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "bench_md.cpp",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\bench_md.cpp",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\bench_md.cpp",
@@ -110,20 +126,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MDSim.cc",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.cc",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\MDSim.cc",
               "ToolTip": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.cc",
               "RelativeToolTip": "SimpleMolecularDynamics\\MDSim.cc",
-              "ViewState": "AgIAAGYBAAAAAAAAAAAiwOgBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHkBAAAAAAAAAAAAwOgBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-09-10T17:34:55.298Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "md_cuda.cu",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\md_cuda.cu",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\md_cuda.cu",
@@ -136,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "mat.cc",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\mat.cc",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\mat.cc",
@@ -149,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "AndersonThermostat.cc",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\AndersonThermostat.cc",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\AndersonThermostat.cc",
@@ -162,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "md_cuda_iface.cpp",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\md_cuda_iface.cpp",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\md_cuda_iface.cpp",
@@ -175,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "MDSim.h",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.h",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\MDSim.h",
@@ -188,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "md_cuda_iface.h",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\md_cuda_iface.h",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\md_cuda_iface.h",

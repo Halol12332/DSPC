@@ -33,6 +33,9 @@
     <ClInclude Include="vec.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="md_cuda_iface.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AndersonThermostat.cc">
@@ -50,8 +53,17 @@
     <ClCompile Include="example_2d.cc">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="md_cuda_iface.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="ping_main.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="md_cuda.cu" />
   </ItemGroup>
 </Project>

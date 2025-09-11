@@ -9,6 +9,9 @@
 #include "MDSim.h"
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h>
+
+#include "md_cuda_iface.h"
+
 //#define sprintf_s snprintf
 using namespace std;
 
@@ -222,8 +225,8 @@ double pot(vec r){
 	return 4.0 * SIGMA_6 * (SIGMA_6 / (r4*r4*r4) - 1 / (r4*r2));
 }
 
-int main(int argc, char* argv[]){	// Args: n, dt, nue, temp_start [, glut-Optionen]
-	if (argc < 5) return 1;
+int main(int argc, char* argv[]) {	// Args: n, dt, nue, temp_start [, glut-Optionen]
+	/*if (argc < 5) return 1;
 	int n = atoi(argv[1]), i;
 	double dt = atof(argv[2]), nue = atof(argv[3]), temp_start = atof(argv[4]);
 
@@ -238,4 +241,12 @@ int main(int argc, char* argv[]){	// Args: n, dt, nue, temp_start [, glut-Option
 	sim->initSim(true, vec(arr1, 2),0, 0, 400, 0.15);
 
 	return glutStuff(step, draw, reshape, keyboard, &argc, argv, sim, "MD - Basics");
+	*/
+#ifdef USE_CUDA
+	bool ok = md_cuda_ping();
+	std::cout << "[CUDA ping] " << (ok ? "OK" : "FAIL") << std::endl;
+#else
+	std::cout << "[CUDA disabled] Build with USE_CUDA" << std::endl;
+#endif
+	return 0;
 }

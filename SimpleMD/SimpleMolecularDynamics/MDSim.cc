@@ -291,17 +291,13 @@ AndersonThermostat* MDSim::getThermostat(){
 double MDSim::refreshVerletLists(bool calc, bool countRadial) {
 #ifdef USE_CUDA
 	// --- persistent GPU state (re-init if N/box/cellL change) ---
-	static DevMD d;
-	static bool gpuInit = false;
+	static DevMD d; static bool gpuInit = false;
 
-	const int   N = this->particles->getLength();
-	const int   dim = this->dim;
-	const bool  periodic = (this->periodic != 0);
+	const int N = this->particles->getLength();
+	const int dim = this->dim;
+	const bool periodic = (this->periodic != 0);
 
-	// cell size: use r_verlet if set, else r_inter (must be >= cutoff used)
 	const double cellL = (this->r_verlet > 0 ? this->r_verlet : this->r_inter);
-
-	// box lengths per axis (dim<3/2 fallback to 1.0 to avoid div by zero)
 	double boxL[3] = { this->simBox[1], (dim >= 2 ? this->simBox[2] : 1.0), (dim >= 3 ? this->simBox[3] : 1.0) };
 
 	auto clamp3 = [](int v) { return v < 3 ? 3 : v; };
@@ -309,13 +305,12 @@ double MDSim::refreshVerletLists(bool calc, bool countRadial) {
 	int ny = clamp3((int)floor(boxL[1] / cellL));
 	int nz = (dim == 3 ? clamp3((int)floor(boxL[2] / cellL)) : 3);
 
-	// (Re)initialize device buffers if first time or geometry changed
 	if (!gpuInit || d.N != N || d.dim != dim || d.cellL != cellL ||
 		d.boxL[0] != boxL[0] || d.boxL[1] != boxL[1] || d.boxL[2] != boxL[2] ||
 		d.nx != nx || d.ny != ny || d.nz != nz) {
 		if (gpuInit) md_cuda_free(&d);
-		if (!md_cuda_init(&d, N, dim, boxL, nx, ny, nz, cellL, /*maxNeigh*/128)) {
-			// If init fails, fall through to CPU path below.
+		// bump maxNeigh if needed (e.g., 512 for 3D LJ)
+		if (!md_cuda_init(&d, N, dim, boxL, nx, ny, nz, cellL, /*maxNeigh*/512)) {
 			gpuInit = false;
 		}
 		else {
@@ -324,20 +319,27 @@ double MDSim::refreshVerletLists(bool calc, bool countRadial) {
 	}
 
 	if (gpuInit) {
-        // Upload positions only (NO GPU neighbor build here)
-        std::vector<double> hx(N), hy(N), hz(N, 0.0);
-        int idx = 0;
-        for (MDParticleListEntry* e = this->particles->getFirst(); e; e = e->getNext(), ++idx) {
-            hx[idx] = e->getThis()->r[1];
-            if (dim >= 2) hy[idx] = e->getThis()->r[2];
-            if (dim >= 3) hz[idx] = e->getThis()->r[3];
-        }
-        md_cuda_upload_pos(&d, hx.data(), hy.data(), hz.data());
+		// 1) upload current positions
+		std::vector<double> hx(N), hy(N), hz(N, 0.0);
+		int idx = 0;
+		for (MDParticleListEntry* e = this->particles->getFirst(); e; e = e->getNext(), ++idx) {
+			hx[idx] = e->getThis()->r[1];
+			if (dim >= 2) hy[idx] = e->getThis()->r[2];
+			if (dim >= 3) hz[idx] = e->getThis()->r[3];
+		}
+		md_cuda_upload_pos(&d, hx.data(), hy.data(), hz.data());
 
-        // ---- EARLY EXIT in bench mode (skip CPU list build) ----
-        if (!calc && !countRadial) return 0.0;
-    }
-#endif // USE_CUDA
+		// 2) (re)build GPU neighbor data
+		md_cuda_build_cell_ids(&d);
+		md_cuda_sort_by_cell(&d);
+		md_cuda_build_cell_ranges(&d);
+		md_cuda_build_neighbors(&d, (this->r_verlet > 0 ? this->r_verlet : this->r_inter), periodic);
+
+		// 3) if we're only benching (no CPU calc/hist), skip CPU list build
+		if (!calc && !countRadial) return 0.0;
+	}
+#endif
+	// USE_CUDA
 
 	// ---- ORIGINAL CPU IMPLEMENTATION (unchanged) ----
 	int i;
@@ -427,7 +429,7 @@ double MDSim::velocityVerletForce() {
 	}
 
 	if (gpuInit) {
-		// Upload positions and reset host accelerations
+		// upload positions & reset host accelerations
 		std::vector<double> hx(N), hy(N), hz(N, 0.0);
 		int idx = 0;
 		for (MDParticleListEntry* e = this->particles->getFirst(); e; e = e->getNext(), ++idx) {
@@ -438,20 +440,18 @@ double MDSim::velocityVerletForce() {
 		}
 		md_cuda_upload_pos(&d, hx.data(), hy.data(), hz.data());
 
-		// Neighbor list on GPU
-		md_cuda_build_cell_ids(&d);
-		md_cuda_sort_by_cell(&d);
-		md_cuda_build_cell_ranges(&d);
-		md_cuda_build_neighbors(&d, (this->r_verlet > 0 ? this->r_verlet : this->r_inter), periodic);
+		// *** DO NOT rebuild neighbors here ***
+		// md_cuda_build_cell_ids(&d);
+		// md_cuda_sort_by_cell(&d);
+		// md_cuda_build_cell_ranges(&d);
+		// md_cuda_build_neighbors(&d, ..., periodic);
 
-		// LJ params (match your CPU f/pot)
-		const double eps = 1.0, sigma = 0.025;
+		const double eps = 1.0, sigma = 0.025; // use 1.0 if you're in reduced units
 		double pot = md_cuda_forces(&d, this->r_inter, eps, sigma, periodic);
 
-		// Copy forces back
 		std::vector<double> fx(N), fy(N), fz(N);
 		md_cuda_download_force(&d, fx.data(), fy.data(), fz.data());
-		idx = 0; // ← reuse, don't redeclare
+		idx = 0;
 		for (MDParticleListEntry* e = this->particles->getFirst(); e; e = e->getNext(), ++idx) {
 			auto* p = e->getThis();
 			p->a[1] += fx[idx];

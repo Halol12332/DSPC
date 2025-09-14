@@ -34,6 +34,20 @@ __device__ inline double lj_force_scalar(double r2, double eps, double sig) {
     double sr12 = sr6 * sr6;
     return 24.0 * eps * (2.0 * sr12 - sr6) * inv2; // |F|/r * r̂ components multiply by dx,dy,dz
 }
+// float versions for mixed-precision path
+__device__ inline float pbc_min_image_f(float d, float L) {
+    d -= nearbyintf(d / L) * L;  // min image
+    return d;
+}
+__device__ inline float lj_force_scalar_f(float r2, float eps, float sig) {
+    // 24*eps*(2*(sig^12)/r^14 - (sig^6)/r^8), returned as factor to multiply by dx,dy,dz, in float
+    float inv2 = 1.0f / r2;
+    float sr2 = (sig * sig) * inv2;
+    float sr6 = sr2 * sr2 * sr2;
+    float sr12 = sr6 * sr6;
+    return 24.0f * eps * (2.0f * sr12 - sr6) * inv2;
+}
+
 
 // ---------- kernels ----------
 __global__ void kernel_cell_ids(const double* __restrict__ x,
@@ -156,6 +170,56 @@ __global__ void kernel_lj_forces(
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i >= N) return;
 
+#ifdef MD_MIXED_FP32
+    // --------- Mixed-precision path: float math, double accumulation ---------
+    float xi = (float)x[i], yi = (float)y[i], zi = (float)z[i];
+    double fxi = 0.0, fyi = 0.0, fzi = 0.0, poti = 0.0;
+
+    int base = i * maxNeigh;
+    int nbh = neighCount[i];
+
+    float Lx_f = (float)Lx, Ly_f = (float)Ly, Lz_f = (float)Lz;
+    float eps_f = (float)eps, sigma_f = (float)sigma, rc2_f = (float)rc2;
+
+    for (int k = 0; k < nbh; ++k) {
+        int j = neighIdx[base + k];
+        float dx = (float)x[j] - xi;
+        float dy = (float)y[j] - yi;
+        float dz = (float)z[j] - zi;
+
+        if (periodic) {
+            dx = pbc_min_image_f(dx, Lx_f);
+            if (dim >= 2) dy = pbc_min_image_f(dy, Ly_f); else dy = 0.0f;
+            if (dim >= 3) dz = pbc_min_image_f(dz, Lz_f); else dz = 0.0f;
+        }
+        else {
+            if (dim < 3) dz = 0.0f;
+            if (dim < 2) dy = 0.0f;
+        }
+
+        float r2f = dx * dx + dy * dy + dz * dz;
+        if (r2f == 0.0f || (rc2_f > 0.0f && r2f > rc2_f)) continue;
+
+        // force (float), accumulate (double)
+        float fsc = lj_force_scalar_f(r2f, eps_f, sigma_f);
+        fxi += (double)(fsc * dx);
+        fyi += (double)(fsc * dy);
+        fzi += (double)(fsc * dz);
+
+        // potential (float), accumulate (double, with 0.5 to avoid double counting)
+        float inv2 = 1.0f / r2f;
+        float sr2 = (sigma_f * sigma_f) * inv2;
+        float sr6 = sr2 * sr2 * sr2;
+        float sr12 = sr6 * sr6;
+        float vij = 4.0f * eps_f * (sr12 - sr6);
+        poti += 0.5 * (double)vij;
+    }
+
+    fx[i] = fxi; fy[i] = fyi; fz[i] = fzi;
+    potOut[i] = poti;
+
+#else
+    // --------- Original double-precision path (unchanged) ---------
     double xi = x[i], yi = y[i], zi = z[i];
     double fxi = 0.0, fyi = 0.0, fzi = 0.0;
     double poti = 0.0;
@@ -178,7 +242,6 @@ __global__ void kernel_lj_forces(
         double r2 = dx * dx + dy * dy + dz * dz;
         if (r2 == 0.0 || (rc2 > 0.0 && r2 > rc2)) continue;
 
-        // LJ force + potential
         double fsc = lj_force_scalar(r2, eps, sigma);
         fxi += fsc * dx; fyi += fsc * dy; fzi += fsc * dz;
 
@@ -187,12 +250,14 @@ __global__ void kernel_lj_forces(
         double sr6 = sr2 * sr2 * sr2;
         double sr12 = sr6 * sr6;
         double vij = 4.0 * eps * (sr12 - sr6);
-        poti += 0.5 * vij; // 0.5 to avoid double counting (symmetric list)
+        poti += 0.5 * vij;
     }
 
     fx[i] = fxi; fy[i] = fyi; fz[i] = fzi;
     potOut[i] = poti;
+#endif
 }
+
 
 extern "C" bool md_cuda_init(DevMD* d, int N, int dim, const double boxL[3],
     int nx, int ny, int nz, double cellL, int maxNeigh)

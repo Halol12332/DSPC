@@ -335,7 +335,7 @@ double MDSim::refreshVerletLists(bool calc, bool countRadial) {
 		md_cuda_build_cell_ranges(&d);
 		md_cuda_build_neighbors(&d, (this->r_verlet > 0 ? this->r_verlet : this->r_inter), periodic);
 
-		// 3) if we're only benching (no CPU calc/hist), skip CPU list build
+		// 3) if we're only fing (no CPU calc/hist), skip CPU list build
 		if (!calc && !countRadial) return 0.0;
 	}
 #endif

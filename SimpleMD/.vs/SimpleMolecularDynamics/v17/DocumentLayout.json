@@ -1,37 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\",
+  "WorkspaceRootPath": "C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\bench_plimpton.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|solutionrelative:SimpleMolecularDynamics\\bench_plimpton.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\md_cuda.cu||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|solutionrelative:SimpleMolecularDynamics\\md_cuda.cu||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\example_2d.cc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|solutionrelative:SimpleMolecularDynamics\\example_2d.cc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\bench_md.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|solutionrelative:SimpleMolecularDynamics\\bench_md.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.cc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.cc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|solutionrelative:SimpleMolecularDynamics\\MDSim.cc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\bench_plimpton.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|solutionrelative:SimpleMolecularDynamics\\bench_plimpton.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|solutionrelative:SimpleMolecularDynamics\\MDSim.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\user\\Desktop\\DSPC\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\md_cuda_iface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|solutionrelative:SimpleMolecularDynamics\\md_cuda_iface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\vec.cc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}|SimpleMolecularDynamics\\SimpleMolecularDynamics.vcxproj|solutionrelative:SimpleMolecularDynamics\\vec.cc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,110 +26,64 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "MDSim.h",
+              "DocumentMoniker": "C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.h",
+              "RelativeDocumentMoniker": "SimpleMolecularDynamics\\MDSim.h",
+              "ToolTip": "C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.h",
+              "RelativeToolTip": "SimpleMolecularDynamics\\MDSim.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAjwB4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-13T05:48:32.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "bench_plimpton.cpp",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\bench_plimpton.cpp",
+              "DocumentMoniker": "C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\bench_plimpton.cpp",
               "RelativeDocumentMoniker": "SimpleMolecularDynamics\\bench_plimpton.cpp",
-              "ToolTip": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\bench_plimpton.cpp",
+              "ToolTip": "C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\bench_plimpton.cpp",
               "RelativeToolTip": "SimpleMolecularDynamics\\bench_plimpton.cpp",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAmwKQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAJYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-09-11T15:55:41.345Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MDSim.cc",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.cc",
-              "RelativeDocumentMoniker": "SimpleMolecularDynamics\\MDSim.cc",
-              "ToolTip": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.cc",
-              "RelativeToolTip": "SimpleMolecularDynamics\\MDSim.cc",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAM0BAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-11T15:57:30.57Z",
+              "DocumentIndex": 0,
+              "Title": "md_cuda.cu",
+              "DocumentMoniker": "C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\md_cuda.cu",
+              "RelativeDocumentMoniker": "SimpleMolecularDynamics\\md_cuda.cu",
+              "ToolTip": "C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\md_cuda.cu",
+              "RelativeToolTip": "SimpleMolecularDynamics\\md_cuda.cu",
+              "ViewState": "AgIAAA4BAAAAAAAAAAApwCABAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-09-12T16:34:03.796Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "bench_md.cpp",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\bench_md.cpp",
-              "RelativeDocumentMoniker": "SimpleMolecularDynamics\\bench_md.cpp",
-              "ToolTip": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\bench_md.cpp",
-              "RelativeToolTip": "SimpleMolecularDynamics\\bench_md.cpp",
-              "ViewState": "AgIAACUAAAAAAAAAAAAmwD8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-11T13:42:05.555Z",
-              "EditorCaption": ""
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "example_2d.cc",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\example_2d.cc",
-              "RelativeDocumentMoniker": "SimpleMolecularDynamics\\example_2d.cc",
-              "ToolTip": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\example_2d.cc",
-              "RelativeToolTip": "SimpleMolecularDynamics\\example_2d.cc",
-              "ViewState": "AgIAAPEAAAAAAAAAAAAAwPcAAAAAAAAAAAAAAA==",
+              "Title": "MDSim.cc",
+              "DocumentMoniker": "C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.cc",
+              "RelativeDocumentMoniker": "SimpleMolecularDynamics\\MDSim.cc",
+              "ToolTip": "C:\\Users\\Lee\\source\\repos\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.cc",
+              "RelativeToolTip": "SimpleMolecularDynamics\\MDSim.cc",
+              "ViewState": "AgIAAIwBAAAAAAAAAAAgwJsBAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-10T17:22:48.702Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MDSim.h",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.h",
-              "RelativeDocumentMoniker": "SimpleMolecularDynamics\\MDSim.h",
-              "ToolTip": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\MDSim.h",
-              "RelativeToolTip": "SimpleMolecularDynamics\\MDSim.h",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABwAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-11T09:08:56.712Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "README.md",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\README.md",
-              "RelativeDocumentMoniker": "..\\README.md",
-              "ToolTip": "C:\\Users\\user\\Desktop\\DSPC\\README.md",
-              "RelativeToolTip": "..\\README.md",
-              "ViewState": "AgIAACkAAAAAAAAAAAAQwDEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-09-11T10:36:26.935Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "vec.cc",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\vec.cc",
-              "RelativeDocumentMoniker": "SimpleMolecularDynamics\\vec.cc",
-              "ToolTip": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\vec.cc",
-              "RelativeToolTip": "SimpleMolecularDynamics\\vec.cc",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-10T17:23:44.069Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "md_cuda_iface.cpp",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\md_cuda_iface.cpp",
-              "RelativeDocumentMoniker": "SimpleMolecularDynamics\\md_cuda_iface.cpp",
-              "ToolTip": "C:\\Users\\user\\Desktop\\DSPC\\SimpleMD\\SimpleMolecularDynamics\\md_cuda_iface.cpp",
-              "RelativeToolTip": "SimpleMolecularDynamics\\md_cuda_iface.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-10T17:14:45.997Z",
+              "WhenOpened": "2025-09-13T05:47:42.229Z",
               "EditorCaption": ""
             }
           ]

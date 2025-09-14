@@ -68,7 +68,14 @@ __global__ void kernel_cell_ranges(const int* __restrict__ cellId_sorted,
     if (i == N - 1 || cellId_sorted[i + 1] != cid) cellEnd[cid] = i + 1;
 }
 
-__global__ void kernel_build_neighbors(
+// ---------- safe wrap_index ----------
+__device__ __forceinline__ int wrap_index(int c, int n) {
+    c %= n;
+    return (c < 0) ? c + n : c;
+}
+
+// ---------- safe kernel_build_neighbors ----------
+__global__ void kernel_build_neighbors_safe(
     const double* __restrict__ x, const double* __restrict__ y, const double* __restrict__ z,
     int N, double Lx, double Ly, double Lz, int dim,
     const int* __restrict__ cellStart, const int* __restrict__ cellEnd,
@@ -79,8 +86,7 @@ __global__ void kernel_build_neighbors(
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i >= N) return;
 
-    // find i's cell (recompute cheaply)
-    auto wrap_index = [](int c, int n)->int { c %= n; return (c < 0) ? c + n : c; };
+    // recompute cell indices safely
     int icx = wrap_index((int)floor((x[i] + 0.5 * Lx) / cellL), nx);
     int icy = wrap_index((int)floor((y[i] + 0.5 * Ly) / cellL), ny);
     int icz = wrap_index((int)floor((z[i] + 0.5 * Lz) / cellL), nz);
@@ -88,37 +94,57 @@ __global__ void kernel_build_neighbors(
     int base = i * maxNeigh;
     int count = 0;
 
-    for (int dz = -1; dz <= 1; ++dz)
-        for (int dy = -1; dy <= 1; ++dy)
+    // iterate over 27 neighboring cells
+    for (int dz = -1; dz <= 1; ++dz) {
+        for (int dy = -1; dy <= 1; ++dy) {
             for (int dx = -1; dx <= 1; ++dx) {
-                int cx = (icx + dx + nx) % nx, cy = (icy + dy + ny) % ny, cz = (icz + dz + nz) % nz;
+                int cx = wrap_index(icx + dx, nx);
+                int cy = wrap_index(icy + dy, ny);
+                int cz = wrap_index(icz + dz, nz);
                 int cid = (cz * ny + cy) * nx + cx;
+
                 int start = cellStart[cid];
                 int end = cellEnd[cid];
-                if (start < 0 || end < 0) continue;
+
+                if (start < 0 || end <= 0) continue;
 
                 for (int p = start; p < end; ++p) {
                     int j = atom_sorted[p];
                     if (j == i) continue;
 
-                    double dx = x[j] - x[i], dy = y[j] - y[i], dz = z[j] - z[i];
+                    double dx = x[j] - x[i];
+                    double dy = y[j] - y[i];
+                    double dz = z[j] - z[i];
+
                     if (periodic) {
-                        dx = pbc_min_image(dx, Lx);
-                        if (dim >= 2) dy = pbc_min_image(dy, Ly); else dy = 0.0;
-                        if (dim >= 3) dz = pbc_min_image(dz, Lz); else dz = 0.0;
+                        dx = dx - nearbyint(dx / Lx) * Lx;
+                        if (dim >= 2) dy = dy - nearbyint(dy / Ly) * Ly; else dy = 0.0;
+                        if (dim >= 3) dz = dz - nearbyint(dz / Lz) * Lz; else dz = 0.0;
                     }
                     else {
-                        if (dim < 3) dz = 0.0;
                         if (dim < 2) dy = 0.0;
+                        if (dim < 3) dz = 0.0;
                     }
+
                     double r2 = dx * dx + dy * dy + dz * dz;
                     if (r2 <= rlist2) {
-                        if (count < maxNeigh) neighIdx[base + count++] = j;
+                        if (count < maxNeigh) {
+                            neighIdx[base + count] = j;
+                            ++count;
+                        }
+                        else {
+                            // safely skip excess neighbors
+                            // optionally: atomicAdd a counter to detect overflows
+                        }
                     }
                 }
             }
+        }
+    }
+
     neighCount[i] = count;
 }
+
 
 __global__ void kernel_lj_forces(
     const double* __restrict__ x, const double* __restrict__ y, const double* __restrict__ z,
@@ -261,11 +287,13 @@ extern "C" bool md_cuda_build_neighbors(DevMD* d, double rlist, bool periodic) {
     if (!d) return false;
     int B = 256, G = (d->N + B - 1) / B;
     double rlist2 = (rlist > 0.0) ? rlist * rlist : 1e300;
-    kernel_build_neighbors << <G, B >> > (
+    kernel_build_neighbors_safe << <G, B >> > (
         d->x, d->y, d->z, d->N, d->boxL[0], d->boxL[1], d->boxL[2], d->dim,
         d->cellStart, d->cellEnd, d->atom_sorted, d->cellId_sorted,
         d->nx, d->ny, d->nz, d->cellL, rlist2, periodic,
-        d->maxNeigh, d->neighIdx, d->neighCount);
+        d->maxNeigh, d->neighIdx, d->neighCount
+        );
+    CUDA_CHECK(cudaDeviceSynchronize());
     return cudaDeviceSynchronize() == cudaSuccess;
 }
 

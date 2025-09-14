@@ -50,16 +50,10 @@
     <ClCompile Include="vec.cc">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="example_2d.cc">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="md_cuda_iface.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="ping_main.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="bench_md.cpp">
+    <ClCompile Include="bench_plimpton.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

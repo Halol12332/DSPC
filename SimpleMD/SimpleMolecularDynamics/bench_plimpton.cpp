@@ -153,7 +153,11 @@ static double run_plimpton(int N, int steps) {
 
     std::cout << "CSV,"
 #ifdef USE_CUDA
-        << "GPU"
+#ifdef MD_MIXED_FP32
+        << "GPU-FP32forces"
+#else
+        << "GPU-FP64"
+#endif
 #else
         << "CPU"
 #endif

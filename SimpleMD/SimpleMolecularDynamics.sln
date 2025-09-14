@@ -15,6 +15,8 @@ Global
 		Release-CPU|x86 = Release-CPU|x86
 		Release-GPU|x64 = Release-GPU|x64
 		Release-GPU|x86 = Release-GPU|x86
+		Release-GPU-FP32|x64 = Release-GPU-FP32|x64
+		Release-GPU-FP32|x86 = Release-GPU-FP32|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Debug|x64.ActiveCfg = Debug|x64
@@ -33,6 +35,10 @@ Global
 		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-GPU|x64.Build.0 = Release-GPU|x64
 		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-GPU|x86.ActiveCfg = Release-GPU|Win32
 		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-GPU|x86.Build.0 = Release-GPU|Win32
+		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-GPU-FP32|x64.ActiveCfg = Release-GPU-FP32|x64
+		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-GPU-FP32|x64.Build.0 = Release-GPU-FP32|x64
+		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-GPU-FP32|x86.ActiveCfg = Release-GPU-FP32|Win32
+		{FADFDBD3-2EBD-4B1C-AA18-310DD27F43C7}.Release-GPU-FP32|x86.Build.0 = Release-GPU-FP32|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

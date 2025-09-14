@@ -8,9 +8,6 @@
 ipch/
 
 # Build outputs
-x64/
-Debug/
-Release/
 *.obj
 *.pdb
 *.idb
